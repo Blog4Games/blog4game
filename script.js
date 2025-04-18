@@ -2,66 +2,63 @@
 function loadChat() {
     const chatBox = document.getElementById('chat-box');
     const chatData = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    chatBox.innerHTML = '';
-    chatData.reverse().forEach(msg => {
-        const newMsg = document.createElement('p');
-        newMsg.innerHTML = `<strong>${msg.name}:</strong> ${msg.text}`;
-        chatBox.appendChild(newMsg);
+
+    chatData.forEach(message => {
+        const messageElement = document.createElement('div');
+        messageElement.innerHTML = `<strong>${message.name}:</strong> ${message.message}`;
+        chatBox.appendChild(messageElement);
     });
 }
 
 function sendMessage() {
-    const name = document.getElementById('chat-name').value.trim();
-    const message = document.getElementById('chat-message').value.trim();
+    const name = document.getElementById('chat-name').value;
+    const message = document.getElementById('chat-message').value;
+
     if (name && message) {
         const chatData = JSON.parse(localStorage.getItem('chatMessages')) || [];
-        chatData.push({ name, text: message });
+        chatData.push({ name, message });
         localStorage.setItem('chatMessages', JSON.stringify(chatData));
-        loadChat();
-        document.getElementById('chat-message').value = '';
-    }
-}
 
-function clearChat() {
-    if (confirm("Czy na pewno chcesz wyczyścić cały czat?")) {
-        localStorage.removeItem('chatMessages');
-        loadChat();
+        const chatBox = document.getElementById('chat-box');
+        const messageElement = document.createElement('div');
+        messageElement.innerHTML = `<strong>${name}:</strong> ${message}`;
+        chatBox.appendChild(messageElement);
+
+        document.getElementById('chat-message').value = ''; // clear message input
     }
 }
 
 // ===== KOMENTARZE =====
 function loadComments() {
-    const commentBox = document.getElementById('comments-box');
-    const comments = JSON.parse(localStorage.getItem('comments')) || [];
-    commentBox.innerHTML = '';
-    comments.reverse().forEach(com => {
-        const newComment = document.createElement('p');
-        newComment.innerHTML = `<strong>${com.name}:</strong> ${com.text}`;
-        commentBox.appendChild(newComment);
+    const commentsBox = document.getElementById('comments-box');
+    const commentsData = JSON.parse(localStorage.getItem('comments')) || [];
+
+    commentsData.forEach(comment => {
+        const commentElement = document.createElement('div');
+        commentElement.innerHTML = `<strong>${comment.name}:</strong> ${comment.text}`;
+        commentsBox.appendChild(commentElement);
     });
 }
 
 function addComment() {
-    const name = document.getElementById('comment-name').value.trim();
-    const comment = document.getElementById('comment-text').value.trim();
-    if (name && comment) {
-        const comments = JSON.parse(localStorage.getItem('comments')) || [];
-        comments.push({ name, text: comment });
-        localStorage.setItem('comments', JSON.stringify(comments));
-        loadComments();
-        document.getElementById('comment-text').value = '';
+    const name = document.getElementById('comment-name').value;
+    const text = document.getElementById('comment-text').value;
+
+    if (name && text) {
+        const commentsData = JSON.parse(localStorage.getItem('comments')) || [];
+        commentsData.push({ name, text });
+        localStorage.setItem('comments', JSON.stringify(commentsData));
+
+        const commentsBox = document.getElementById('comments-box');
+        const commentElement = document.createElement('div');
+        commentElement.innerHTML = `<strong>${name}:</strong> ${text}`;
+        commentsBox.appendChild(commentElement);
+
+        document.getElementById('comment-text').value = ''; // clear comment input
     }
 }
 
-function clearComments() {
-    if (confirm("Czy na pewno chcesz wyczyścić wszystkie komentarze?")) {
-        localStorage.removeItem('comments');
-        loadComments();
-    }
-}
-
-// ===== START =====
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', function() {
     loadChat();
     loadComments();
 });
