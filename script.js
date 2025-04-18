@@ -62,3 +62,24 @@ document.addEventListener('DOMContentLoaded', function() {
     loadChat();
     loadComments();
 });
+// Funkcja do przełączania trybu ciemnego
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+
+    // Zapisz ustawienie trybu ciemnego w LocalStorage
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Sprawdzanie ustawienia trybu ciemnego przy ładowaniu strony
+document.addEventListener('DOMContentLoaded', () => {
+    const isDarkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Dodanie słuchacza zdarzenia na suwak
+    const themeSwitcher = document.getElementById('theme-switcher');
+    themeSwitcher.addEventListener('click', toggleDarkMode);
+});
