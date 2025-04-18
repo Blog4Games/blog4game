@@ -20,12 +20,14 @@
     </header>
 
     <main>
-        <section id="dyskusja">
+        <section id="discussion">
             <h2>Dyskusja</h2>
-            <div id="chat-box"></div>
-            <input type="text" id="chat-name" placeholder="Twoja nazwa">
-            <input type="text" id="chat-message" placeholder="Wpisz wiadomość">
-            <button onclick="sendMessage()">Wyślij</button>
+            <div id="chat-box">
+                <!-- Czat będzie się pojawiał tutaj -->
+            </div>
+            <textarea id="message" placeholder="Wpisz wiadomość..."></textarea>
+            <input type="text" id="username" placeholder="Twoja nazwa użytkownika">
+            <button id="send-message">Wyślij wiadomość</button>
         </section>
     </main>
 
@@ -33,6 +35,10 @@
         <p>© 2025 Blog4Games. Wszelkie prawa zastrzeżone.</p>
     </footer>
 
+    <!-- Przycisk przełączający tryb ciemny -->
+    <button id="theme-switcher">🌙 / 🌞</button>
+
     <script src="script.js"></script>
 </body>
 </html>
+
