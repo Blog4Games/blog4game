@@ -1,25 +1,35 @@
-/* Styl domyślny (jasny) */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #222;
+/* Podstawowe stylowanie */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 20px;
 }
 
 header {
-    background-color: #2e7d32;
+    background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    padding: 20px 0;
     text-align: center;
 }
 
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
 nav ul {
+    list-style-type: none;
     display: flex;
     justify-content: center;
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 nav ul li {
@@ -27,124 +37,138 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
-    font-weight: bold;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #f4f4f4;
 }
 
-main {
+/* Sekcja bloga */
+#blog {
+    background-color: #f9f9f9;
     padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-section {
-    margin-bottom: 40px;
-    border-bottom: 2px solid #2e7d32;
-    padding-bottom: 20px;
+#blog h2 {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
 }
 
-h2 {
-    color: #2e7d32;
+#blog h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
 }
 
-input, textarea, button {
-    display: block;
-    margin: 10px 0;
+#blog ul {
+    margin-top: 15px;
+}
+
+#blog ul li {
+    margin-bottom: 10px;
     padding: 8px;
-    width: 100%;
-    max-width: 400px;
-    font-size: 1em;
+    border-left: 4px solid #4CAF50;
+    background-color: #e9f7e5;
+    transition: background-color 0.3s ease;
 }
 
+#blog ul li:hover {
+    background-color: #d1f0d1;
+}
+
+/* Stylowanie formularzy w komentarzach i dyskusji */
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea:focus, input[type="text"]:focus {
+    border-color: #4CAF50;
+}
+
+/* Przycisk wysyłania */
 button {
-    background-color: #2e7d32;
+    background-color: #4CAF50;
     color: white;
+    padding: 10px 20px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #1b5e20;
+    background-color: #45a049;
 }
 
-#chat-box, #comments-box {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    max-width: 600px;
-    background-color: #f9f9f9;
-}
-
-footer {
-    background-color: #2e7d32;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-/* Styl dla trybu ciemnego */
+/* Tło dla trybu ciemnego */
 body.dark-mode {
     background-color: #121212;
-    color: #ffffff;
+    color: #f1f1f1;
 }
 
 body.dark-mode header {
-    background-color: #7e57c2;
+    background-color: #333;
 }
 
 body.dark-mode nav ul li a {
-    color: #ffffff;
+    color: #ddd;
 }
 
-body.dark-mode nav ul li a:hover {
-    color: #e0e0e0;
+body.dark-mode #blog {
+    background-color: #1f1f1f;
+    color: #ddd;
 }
 
-body.dark-mode section {
-    border-bottom: 2px solid #7e57c2;
+body.dark-mode #blog h2 {
+    color: #9c27b0;
 }
 
-body.dark-mode h2 {
-    color: #7e57c2;
-}
-
-body.dark-mode input, body.dark-mode textarea, body.dark-mode button {
+body.dark-mode #blog ul li {
     background-color: #333;
-    color: white;
-    border: 1px solid #7e57c2;
+    border-left: 4px solid #9c27b0;
+}
+
+body.dark-mode #blog ul li:hover {
+    background-color: #444;
 }
 
 body.dark-mode button {
-    background-color: #7e57c2;
+    background-color: #9c27b0;
 }
 
 body.dark-mode button:hover {
-    background-color: #5e35b1;
+    background-color: #8e24aa;
 }
 
-body.dark-mode #chat-box, body.dark-mode #comments-box {
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-}
-
-/* Suwak w prawym górnym rogu */
+/* Stylowanie przycisku zmiany trybu */
 #theme-switcher {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #7e57c2;
+    background-color: #4CAF50;
     color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
     border: none;
-    padding: 10px;
+    font-size: 1.5rem;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 #theme-switcher:hover {
-    background-color: #5e35b1;
+    background-color: #45a049;
 }
