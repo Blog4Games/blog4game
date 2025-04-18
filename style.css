@@ -70,14 +70,6 @@ button:hover {
     background-color: #1b5e20;
 }
 
-.clear-button {
-    background-color: #c62828;
-}
-
-.clear-button:hover {
-    background-color: #b71c1c;
-}
-
 #chat-box, #comments-box {
     margin-bottom: 20px;
     padding: 10px;
