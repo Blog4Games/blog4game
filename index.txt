@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog4Games</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Blog4Games</h1>
+    <nav>
+      <ul>
+        <li><button onclick="showTab('blog')">Blog</button></li>
+        <li><button onclick="showTab('comments')">Komentarze</button></li>
+        <li><button onclick="showTab('discussion')">Dyskusja</button></li>
+        <li><button onclick="showTab('contact')">Kontakt</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="blog" class="tab">
+      <h2>Nowości i Blogi</h2>
+      <article>
+        <h3>Nowa recenzja: Elden Ring</h3>
+        <p>Sprawdź naszą najnowszą recenzję popularnej gry RPG!</p>
+      </article>
+      <article>
+        <h3>TOP 5 gier 2025 roku</h3>
+        <p>Przedstawiamy najlepsze tytuły, które warto ograć!</p>
+      </article>
+    </section>
+
+    <section id="comments" class="tab hidden">
+      <h2>Komentarze</h2>
+      <div id="commentsList"></div>
+      <input type="text" id="commentName" placeholder="Twoja nazwa" />
+      <textarea id="commentText" placeholder="Twój komentarz"></textarea>
+      <button onclick="addComment()">Wyślij</button>
+    </section>
+
+    <section id="discussion" class="tab hidden">
+      <h2>Dyskusja (Czat)</h2>
+      <div id="chatBox"></div>
+      <input type="text" id="chatName" placeholder="Nazwa użytkownika" />
+      <input type="text" id="chatMessage" placeholder="Wiadomość" />
+      <button onclick="sendMessage()">Wyślij</button>
+    </section>
+
+    <section id="contact" class="tab hidden">
+      <h2>Kontakt</h2>
+      <p>Email (admin): <a href="mailto:blog4games.adm@gmail.com">blog4games.adm@gmail.com</a></p>
+      <p>Email (współpraca): <a href="mailto:blog4games.wspolpraca@gmail.com">blog4games.wspolpraca@gmail.com</a></p>
+      <ul>
+        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+        <li><a href="https://tiktok.com" target="_blank">TikTok</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
