@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komentarze - Blog4Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Blog4Games</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="dyskusja.html">Dyskusja</a></li>
+                <li><a href="komentarze.html">Komentarze</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="komentarze">
+            <h2>Komentarze</h2>
+            <div id="comments-box"></div>
+            <input type="text" id="comment-name" placeholder="Twoja nazwa">
+            <textarea id="comment-text" placeholder="Wpisz komentarz"></textarea>
+            <button onclick="addComment()">Dodaj komentarz</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Blog4Games. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
